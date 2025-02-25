@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Usuario, Perfil, DatosExternosjuan , DatosExternoscris, DatosExternoscamilo
+from .models import Usuario, Perfil, DatosExternosjuan , DatosExternoscris, DatosExternoscamilo, MeteoriteLanding
 
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,3 +27,8 @@ class DatoscamiloSerializer(serializers.ModelSerializer):
     class Meta:
         model = DatosExternoscamilo
         fields = '__all__'
+        
+class DatosmeteoroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MeteoriteLanding
+        fields = ['name']

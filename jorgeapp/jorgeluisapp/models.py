@@ -50,5 +50,14 @@ class DatosExternoscamilo(models.Model):
     class Meta:
         db_table = 'Materias_camilo' 
         
+        
+class MeteoriteLanding(models.Model):
+     
+    name = models.CharField(max_length=255)
+    
+
+    def __str__(self):
+        return f"{self.name} ({self.year})"
+        
 # Create your models here.
 

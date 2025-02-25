@@ -1,4 +1,4 @@
-from jorgeluisapp.models import Usuario, Perfil , DatosExternosjuan, DatosExternoscris, DatosExternoscamilo
+from jorgeluisapp.models import Usuario, Perfil , DatosExternosjuan, DatosExternoscris, DatosExternoscamilo, MeteoriteLanding
 from rest_framework import viewsets
 from rest_framework import serializers
 
@@ -46,6 +46,15 @@ class DatoscamiloSerializer(serializers.ModelSerializer):
 class DatoscamiloViewSet(viewsets.ModelViewSet):
     queryset = DatosExternoscamilo.objects.all()
     serializer_class = DatoscamiloSerializer
+    
+class DatosmeteoroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MeteoriteLanding
+        fields = '__all__'
+    
+class DatosmeteoroViewSet(viewsets.ModelViewSet):
+    queryset = MeteoriteLanding.objects.all()
+    serializer_class = DatosmeteoroSerializer
     
     
     

@@ -131,6 +131,8 @@ def obtener_datos():
     obtenerdatosjuan()  #  es el metodo de juan
     obtenerdatoscris()  #  el metodo de cris
     camilo2() #  el metodo de camilo con arrays
+   
+
     
 
 

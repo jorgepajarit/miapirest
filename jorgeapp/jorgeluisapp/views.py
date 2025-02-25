@@ -1,9 +1,9 @@
-from rest_framework import generics
-from .models import Usuario, Perfil, DatosExternosjuan, DatosExternoscris , DatosExternoscamilo
+from rest_framework import generics , viewsets
+from .models import Usuario, Perfil, DatosExternosjuan, DatosExternoscris , DatosExternoscamilo , MeteoriteLanding
 from rest_framework.views import APIView
 from rest_framework.response import Response 
 import requests
-from .serializers import UsuarioSerializer, PerfilSerializer, DatosjuanSerializer, DatoscrisSerializer, DatoscamiloSerializer
+from .serializers import UsuarioSerializer, PerfilSerializer, DatosjuanSerializer, DatoscrisSerializer, DatoscamiloSerializer, DatosmeteoroSerializer
 
 class UsuarioListCreate(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
@@ -44,6 +44,8 @@ class DatoscamiloListCreate(generics.ListCreateAPIView):
 class DatoscamiloDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = DatosExternoscamilo.objects.all()
     serializer_class = DatosExternoscamilo
+
+
     
 class JuanAPIView(APIView):
     def get(self, request):
@@ -74,6 +76,16 @@ class CamiloAPIView(APIView):
             return Response(response.json())  
         else:
             return Response({"error": "No se pudo obtener la API de cristian"}, status=500)
+            
+class DatosmeteoroViewSet(viewsets.ModelViewSet):
+    queryset = MeteoriteLanding.objects.all()
+    serializer_class = DatosmeteoroSerializer
+            
+
+            
+
+            
+
             
 
             
