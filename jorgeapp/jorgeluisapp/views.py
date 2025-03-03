@@ -1,9 +1,9 @@
 from rest_framework import generics , viewsets
-from .models import Usuario, Perfil, DatosExternosjuan, DatosExternoscris , DatosExternoscamilo , MeteoriteLanding
+from .models import Usuario, Perfil, DatosExternosjuan, DatosExternoscris , DatosExternoscamilo , MeteoriteLanding, Trip, Envio
 from rest_framework.views import APIView
 from rest_framework.response import Response 
 import requests
-from .serializers import UsuarioSerializer, PerfilSerializer, DatosjuanSerializer, DatoscrisSerializer, DatoscamiloSerializer, DatosmeteoroSerializer
+from .serializers import UsuarioSerializer, PerfilSerializer, DatosjuanSerializer, DatoscrisSerializer, DatoscamiloSerializer, DatosmeteoroSerializer, DatosprivakaggleSerializer, DatospublicosleSerializer
 
 class UsuarioListCreate(generics.ListCreateAPIView):
     queryset = Usuario.objects.all()
@@ -80,6 +80,15 @@ class CamiloAPIView(APIView):
 class DatosmeteoroViewSet(viewsets.ModelViewSet):
     queryset = MeteoriteLanding.objects.all()
     serializer_class = DatosmeteoroSerializer
+    
+    
+class DatosprivakaggleViewSet(viewsets.ModelViewSet):
+    queryset = Trip.objects.all()
+    serializer_class = DatosprivakaggleSerializer
+    
+class DatospublicosViewSet(viewsets.ModelViewSet):
+    queryset = Envio.objects.all()
+    serializer_class = DatospublicosleSerializer
             
 
             
